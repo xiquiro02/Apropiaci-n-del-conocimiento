@@ -1,0 +1,90 @@
+/* Elimina los márgenes y rellenos predeterminados de todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+}
+/* Estilos para el título principal h1 */
+h1 {
+    padding-top: 20px; /* Espacio interno en la parte superior del h1 */
+    padding-bottom: 20px; /* Espacio interno en la parte inferior del h1 */
+    background-color: #3C949E; /* Color de fondo del título */
+    text-align: center; /* Centra el texto horizontalmente */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Fuente con estilo clásico */
+    font-size: 40px; /* Tamaño de letra grande para el título */
+}
+/* Contenedor de la navegación: logo + links */
+.navegacion {
+    text-align: center; /* Centra horizontalmente los elementos inline-block dentro */
+    padding: 20px; /* Espacio interior en todos los lados del contenedor */
+}
+/* Contenedor del logo */
+.logo {
+    display: inline-block; /* Hace que se ubique en línea con los links */
+    vertical-align: middle; /* Alinea verticalmente con los elementos vecinos */
+}
+/* Contenedor de los enlaces de navegación */
+.links_naveg {
+    display: inline-block; /* También en línea, al lado del logo */
+    vertical-align: middle; /* Alineado verticalmente al centro */
+}
+/* Estilos para la imagen del logo */
+.logo img {
+    height: 90px; /* Altura fija de la imagen */
+    width: 90px; /* Ancho fijo de la imagen */
+    margin-right: 100px; /* Espacio hacia la derecha, separa la imagen de los enlaces */
+}
+/* Estilos para los enlaces de navegación */
+.links_naveg a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-size: 30px; /* Tamaño grande de letra para los enlaces */
+    margin-left: 70px; /* Espacio a la izquierda entre enlaces */
+}
+/* Estilos para el botón dentro de la navegación */
+.links_naveg button {
+    margin-left: 100px; /* Separación a la izquierda respecto al último enlace */
+    padding: 15px; /* Espacio interno alrededor del texto del botón */
+    border: 5px solid #9BD8DB; /* Borde grueso celeste claro */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Fuente clásica del botón */
+    color: black; /* Color del texto del botón */
+    border-radius: 6PX; /* Bordes redondeados (¡mejor usar "6px" en minúsculas!) */
+    background-color: #9BD8DB; /* Color de fondo celeste claro */
+}
+/* Efecto hover (cuando el cursor pasa encima del botón) */
+button:hover {
+    background-color: #2DA0FA; /* Cambia el color de fondo a azul más fuerte */
+}
+/* Oculta el contenido por defecto usando la clase .ocultar_mensaje */
+.ocultar_mensaje {
+    display: none; /* No se muestra en la página hasta que se active */
+}
+/* Estilos cuando el elemento con id="mensaje" este activo por (target) */
+#mensaje:target {
+    display: block; /* Muestra el bloque (sobrescribe el display: none anterior) */
+    padding: 20px; /* Agrega espacio interno alrededor del contenido */
+    margin-top: 10px; /* Espacio superior respecto a otros elementos */
+    background-color: #d0f0c0; /* Fondo verde claro para destacar el mensaje */
+    border: 2px solid #4CAF50; /* Borde sólido de 2px con color verde */
+    border-radius: 10px; /* Bordes redondeados de 10px */
+    font-family: Arial, sans-serif; /* Fuente principal Arial, si no está disponible usa sans-serif */
+    font-size: 18px; /* Tamaño de fuente de 18 píxeles */
+}
+/* Aplica estilos generales a todos los párrafos dentro del contenedor */
+.contenedor p {
+    padding-bottom: 30px;       /* Espacio debajo de cada párrafo */
+    margin-left: 90px;          /* Margen izquierdo para alejarlo del borde */
+    margin-right: 90px;         /* Margen derecho igual que el izquierdo */
+    font-size: 30px;            /* Tamaño de letra grande para mejorar la lectura */
+}
+/* Aplica estilos solo al primer <h2> que sea hijo de .contenedor */
+.contenedor h2:first-child {
+    color: #2880fd;             /* Texto azul para destacar */
+    background-color: #bdfd28;  /* Fondo verde claro para resaltar */
+    text-align: center;         /* Centra el texto horizontalmente */
+}
+/* Aplica estilos generales a todos los <h2> dentro del contenedor */
+.contenedor h2 {
+    text-align: center;         /* Centra el texto (reafirma la alineación) */
+    background-color: #fd28f0;  /* Fondo rosa brillante para destacar los títulos */
+    padding: 20px;              /* Espaciado interno para que el texto no esté pegado al borde */
+    font-size: 35px;            /* Tamaño de fuente mayor que el párrafo para jerarquía visual */
+}
