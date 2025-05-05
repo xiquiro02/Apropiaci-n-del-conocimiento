@@ -12,6 +12,12 @@ h1 {
     font-family: Georgia, 'Times New Roman', Times, serif; /* Fuente con estilo clásico */
     font-size: 40px; /* Tamaño de letra grande para el título */
 }
+/* Aplica un estilo especial antes del contenido de los encabezados h1 */
+h1::before {
+    content: "🐶&🐱";       /* Inserta los emojis de un perro y un gato antes del texto del h1 */
+    font-size: 35px;        /* Define un tamaño de fuente de 35 píxeles para los emojis */
+    margin-right: 10px;     /* Agrega un espacio de 10 píxeles entre los emojis y el texto del h1 */
+}
 /* Contenedor de la navegación: logo + links */
 .navegacion {
     text-align: center; /* Centra horizontalmente los elementos inline-block dentro */
@@ -35,9 +41,14 @@ h1 {
 }
 /* Estilos para los enlaces de navegación */
 .links_naveg a {
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    font-size: 30px; /* Tamaño grande de letra para los enlaces */
-    margin-left: 70px; /* Espacio a la izquierda entre enlaces */
+    text-decoration: none;           /* Elimina el subrayado predeterminado de los enlaces */
+    font-size: 30px;                 /* Establece un tamaño de fuente grande para mayor visibilidad */
+    margin-left: 70px;              /* Agrega espacio a la izquierda de cada enlace para separarlos */
+    color: #000cff;                 /* Color inicial del texto del enlace (azul brillante) */
+    transition: color 0.3s;         /* Suaviza el cambio de color en 0.3 segundos al hacer hover */
+}
+.links_naveg a:hover {
+    color: #f9000b;                 /* Cambia el color del texto a rojo al pasar el cursor */
 }
 /* Estilos para el botón dentro de la navegación */
 .links_naveg button {
@@ -68,6 +79,25 @@ button:hover {
     font-family: Arial, sans-serif; /* Fuente principal Arial, si no está disponible usa sans-serif */
     font-size: 18px; /* Tamaño de fuente de 18 píxeles */
 }
+/* Estilo base para el botón con clase .boton_mensaje */
+.boton_mensaje {
+    position: relative;                             /* Establece el contexto de posicionamiento para el pseudo-elemento ::after */
+    padding: 10px;                                  /* Espaciado interno de 10 píxeles */
+    border: 3px solid black;                      /* Borde sólido negro de 3 píxeles */
+    background-color: aquamarine;                 /* Color de fondo verde agua */
+    font-size: 15px;                                /* Tamaño de fuente de 15 píxeles */
+}
+/* Estilo para el pseudo-elemento ::after del botón */
+.boton_mensaje::after {
+    content: "";                                      /* Genera un pseudo-elemento vacío */
+    display: block;                                   /* El pseudo-elemento se comporta como un bloque */
+    position: absolute;                               /* Permite posicionarlo de forma exacta dentro del botón */
+    top: 0;                                           /* Se ubica en la parte superior del botón */
+    left: 0;                                          /* Se ubica en la parte izquierda del botón */
+    box-shadow: 10px 10px 2px rgba(0, 0, 0, 0.5);   /* Aplica una sombra negra, desplazada 10px a la derecha y abajo, con un difuminado leve de 2px */
+    width: 100%;                                      /* El pseudo-elemento ocupa todo el ancho del botón */
+    height: 100%;                                     /* El pseudo-elemento ocupa toda la altura del botón */
+}
 /* Aplica estilos generales a todos los párrafos dentro del contenedor */
 .contenedor p {
     padding-bottom: 30px;       /* Espacio debajo de cada párrafo */
@@ -75,11 +105,26 @@ button:hover {
     margin-right: 90px;         /* Margen derecho igual que el izquierdo */
     font-size: 30px;            /* Tamaño de letra grande para mejorar la lectura */
 }
+/* Estilo para agregar una línea después de cada párrafo dentro de '.contenedor' */
+.contenedor p::after {
+    content: "";                      /* Crea un pseudo-elemento vacío */
+    display: block;                   /* Hace que el pseudo-elemento sea un bloque (ocupa todo el ancho disponible) */
+    height: 4px;                      /* Define la altura de la línea en 4 píxeles */
+    width: 100%;                      /* La línea ocupa el 100% del ancho del contenedor del párrafo */
+    background-color: #00f9df;      /* Establece el color de la línea (verde azulado) */
+    margin-top: 10px;                 /* Añade un espacio de 10 píxeles entre el párrafo y la línea */
+}
 /* Aplica estilos solo al primer <h2> que sea hijo de .contenedor */
 .contenedor h2:first-child {
     color: #2880fd;             /* Texto azul para destacar */
     background-color: #bdfd28;  /* Fondo verde claro para resaltar */
     text-align: center;         /* Centra el texto horizontalmente */
+}
+/* Inserta una huella antes de cada h2 dentro de un contenedor con clase "contenedor" */
+.contenedor h2::before {
+    content: "🐾";          /* Muestra una huella de animal antes del subtítulo */
+    font-size: 45px;        /* Tamaño del emoji: 45 píxeles */
+    margin-right: 10px;     /* Espacio entre la huella y el texto del h2 */
 }
 /* Aplica estilos generales a todos los <h2> dentro del contenedor */
 .contenedor h2 {
@@ -87,4 +132,140 @@ button:hover {
     background-color: #fd28f0;  /* Fondo rosa brillante para destacar los títulos */
     padding: 20px;              /* Espaciado interno para que el texto no esté pegado al borde */
     font-size: 35px;            /* Tamaño de fuente mayor que el párrafo para jerarquía visual */
+}
+/* Estilos para el contenedor con clase .cita */
+.cita {
+    text-align: center;      /* Centra horizontalmente el texto dentro del contenedor */
+    margin-bottom: 30px;     /* Agrega espacio debajo de la cita para separarla de otros elementos */
+    font-size: 40px;         /* Tamaño grande del texto de la cita para destacarla visualmente */
+}
+/* Pseudo-elemento ::before para agregar comillas al inicio de la cita */
+.cita::before {
+    content: "''";             /* Inserta comillas simples dobles antes del contenido real de la cita */
+    font-size: 40px;           /* Tamaño de fuente igual al texto de la cita para mantener proporción */
+    color: #000;             /* Color negro para las comillas */
+}
+/* Pseudo-elemento ::after para agregar comillas al final de la cita */
+.cita::after {
+    content: "''";           /* Inserta comillas simples dobles después del contenido real de la cita */
+    font-size: 40px;         /* Tamaño de fuente igual al texto de la cita para mantener proporción */
+    color: #000;           /* Color negro para las comillas */
+}
+.input_icono {
+    position: relative;      /* Contenedor relativo para que el ícono se posicione respecto a este div */
+    display: inline-block;   /* Hace que el input y el ícono se comporten como un bloque en línea */
+    margin: 100px;           /* Espacio exterior alrededor del contenedor */
+}
+.input_icono::before {
+    content: "🔍";     /* Inserta el ícono antes del contenido del div */
+    position: absolute; /* Posiciona el ícono de forma absoluta dentro del contenedor */
+    left: 10px;         /* Ubicación del ícono desde la izquierda del contenedor */
+    top: 20%;           /* Ubicación del ícono desde la parte superior (20% del alto del contenedor) */
+    font-size: 20px;    /* Tamaño del ícono */
+    color: gray;      /* Color del ícono */
+}
+.input_icono input {
+    padding-left: 45px;         /* Añade espacio a la izquierda del input para que no se sobreponga con el ícono */
+    height: 40px;               /* Altura del campo de entrada */
+    font-size: 28px;            /* Tamaño del texto dentro del input */
+}
+/* --------------------------------------------Formulario-----------------------------------------------------------------------------------------*/
+.formulario {
+    background-image: url(Imagenes/clinica-veterinaria.avif);   /* Imagen de Fondo para todo el bloque del formulario */
+    padding: 50px;                                              /* Espacio interno alrededor del contenido */
+}
+.formulario h3 {
+    font-size: 50px;                                   /* Tamaño grande del texto del título */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Tipografía clásica y elegante */
+    margin-bottom: 20px;                               /* Espacio debajo del título */
+    text-align: center;                                /* Centra el texto horizontalmente */
+}
+form {
+    background-color: #ff79d4; /* Fondo rosa para el formulario */
+    padding: 20px;             /* Espacio interno dentro del formulario */
+    max-width: 600px;          /* Ancho máximo del formulario */
+    margin: 0 auto;            /* Centra el formulario horizontalmente */
+    border-radius: 10px;       /* Bordes redondeados */
+    border: 5px solid black;
+}
+.formulario form label, .formulario form input {
+    display: block;       /* Cada elemento ocupa toda la línea, uno debajo del otro */
+    font-size: 30px;      /* Tamaño grande del texto para buena legibilidad */
+    margin-bottom: 6px;   /* Espacio entre etiquetas y campos */
+}
+.formulario form input {
+    margin-bottom: 10px;  /* Espacio extra entre campos de entrada */
+}
+/* Aplica a los campos inválidos del formulario */
+input:invalid {
+    border: 4px solid red;          /* Borde rojo grueso */
+    background-color: #fcd8d8;      /* Fondo rojo claro para indicar error */
+}
+/* Aplica a los campos válidos */
+input:valid {
+    border: 4px solid greenyellow;  /* Borde verde para indicar que es válido */
+}
+/* Aplica solo a campos de tipo email */
+input[type="email"]{
+    background-color: #5ac7ff;      /* Fondo azul claro */
+    border: 2px solid black;        /* Borde negro */
+}
+/* Aplica cuando un campo está enfocado (activo/clickeado) */
+input:focus {
+    background-color: #f9fa88;      /* Fondo amarillo claro */
+    border: 2px solid black;        /* Borde negro */
+}
+/* -------------------------------------------------------------------------------------------------------------------------------------*/
+:root {
+    --color-border-img: #fd28f0;          /* Se define una variable para el color del borde de la imagen */
+    --color-subtitulos: #000cff;          /* Variable para el color de los subtítulos (h3) */
+    --fondo-parrafo1: #00ff10;            /* Fondo del primer párrafo dentro del contenedor .parrafos_final */
+    --fondo-parrafo2: #00fbff;            /* Fondo para los demás párrafos dentro de .parrafos_final */
+}
+.parrafos_final img:only-of-type {
+    height: 500px;                               /* Altura fija de la imagen */
+    width: 700px;                                /* Ancho fijo de la imagen */
+    border: 20px solid var(--color-border-img);  /* Borde de 20px con el color definido en la variable */
+    border-radius: 10px;                         /* Bordes redondeados de 10px */
+}
+.parrafos_final {
+    margin: 0 auto;                        /* Centra el contenedor horizontalmente */
+    text-align: center;                    /* Centra el texto e imágenes dentro del contenedor */
+}
+.parrafos_final h3 {
+    font-family: Arial, Helvetica, sans-serif;  /* Fuente para los subtítulos h3 */
+    font-size: 30px;                             /* Tamaño de fuente grande para subtítulos */
+    margin-top: 40px;                            /* Espacio superior para separar del contenido anterior */
+    color: var(--color-subtitulos);             /* Color del texto usando la variable definida */
+}
+.parrafos_final h3::before{
+    content: "🐾";          /* Muestra una huella de animal antes del subtítulo */
+    font-size: 45px;        /* Tamaño del emoji: 45 píxeles */
+    margin-right: 10px;     /* Espacio entre la huella y el texto del h2 */
+}
+.parrafos_final p:first-of-type {
+    text-align: left;                                                             /* Alinea el texto a la izquierda */
+    margin-top: 20px;                                                             /* Espacio superior */
+    margin-left: 60px;                                                            /* Márgen Izquierdo */
+    margin-right: 60px;                                                           /* Márgen Derecho */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;     /* Fuente del texto */
+    background-color: var(--fondo-parrafo1);                                      /* Fondo del primer párrafo */
+    padding: 30px;                                                                /* Espaciado interno para separar el texto del borde */
+}
+.parrafos_final p {
+    text-align: left;                                                                /* Alineación del texto a la izquierda */
+    margin-top: 20px;                                                                /* Espacio superior */
+    margin-left: 60px;                                                               /* Márgen Izquierdo */
+    margin-right: 60px;                                                              /* Márgen Derecho */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;        /* Fuente */
+    background-color: var(--fondo-parrafo2);                                         /* Fondo para los demás párrafos */
+    padding: 30px;                                                                   /* Espaciado interno */
+}
+.parrafos_final p::after{
+    content: "";                      /* Crea un pseudo-elemento vacío */
+    display: block;                   /* Hace que el pseudo-elemento sea un bloque (ocupa todo el ancho disponible) */
+    height: 4px;                      /* Define la altura de la línea en 4 píxeles */
+    width: 100%;                      /* La línea ocupa el 100% del ancho del contenedor del párrafo */
+    background-color: black;        /* Establece el color de la línea (Negro) */
+    margin-top: 15px;                 /* Añade un espacio de 15 píxeles entre el párrafo y la línea */
 }

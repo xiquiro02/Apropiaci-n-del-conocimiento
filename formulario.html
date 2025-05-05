@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Bienestar de tus mascotas</h1>
+        <nav class="navegacion">
+            <div class="logo">
+                <img src="Imagenes/pet-shop-logo-design.jpg">
+            </div>
+            <div class="links_naveg">
+                <a href="#mensaje" target="_blank">Sobre Nosotros</a>
+                <a href="https://madridsalud.es/cuidados-basicos-para-los-animales-de-compania-perros-y-gatos/" target="_blank">Tips de Cuidados</a>
+                <a href="https://www.diarioveterinario.com/" target="_blank">Noticias</a>
+                <button class="boton">Iniciar Sesión</button>
+            </div>
+            <div id="mensaje" class="ocultar_mensaje">
+                <p>
+                    ¡En VetTips, creemos que el bienestar de tus mascotas comienza con la información correcta. Somos un equipo apasionado por los animales y comprometido con brindar consejos prácticos y confiables sobre el cuidado, la salud y la felicidad de tus compañeros de cuatro patas. Ya seas un dueño experimentado o estés adoptando por primera vez, aquí encontrarás guías claras, tips útiles y recursos que te ayudarán a ofrecerle a tu mascota una vida sana y plena.
+                </p>
+            </div>
+        </nav>
+    </header>
+    <div class="formulario">
+        <form action="#">
+            <h3> Formulario</h3>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="lastname">Primer Apellido:</label>
+            <input type="text" id="lastname" name="lastname" required>
+
+            <label for="Second_lastname">Segundo Apellido:</label>
+            <input type="text" id="Second_lastname" name="Second_lastname" required>
+            
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+</body>
+</html>
