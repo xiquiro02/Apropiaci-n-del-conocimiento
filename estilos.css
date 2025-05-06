@@ -3,14 +3,29 @@
     margin: 0;
     padding: 0;
 }
+:root {
+    --color-border-img: #fd28f0;          /* Se define una variable para el color del borde de la imagen */
+    --color-subtitulos: #000cff;          /* Variable para el color de los subtítulos (h3) */
+    --fondo-parrafo1: #00ff10;            /* Fondo del primer párrafo dentro del contenedor .parrafos_final */
+    --fondo-parrafo2: #00fbff;            /* Fondo para los demás párrafos dentro de .parrafos_final */
+}
+:root{
+    --color-primario-rojo: red;            /* Se define una variable de color primario rojo */
+    --color-negro: black;                  /* Se define una variable de color negro */
+    --color-fondo-oscuro: #70065C;         /* Se define una variable de un tono oscuro púrpura */
+    --color-fondo-oscuro2: #3C949E ;       /* Se define una variable de un tono azul verdoso medio */
+}
+main{
+    margin-top: 150px; /* Espacio superior de 100px para separar el contenido del encabezado */
+}
 /* Estilos para el título principal h1 */
 h1 {
-    padding-top: 20px; /* Espacio interno en la parte superior del h1 */
-    padding-bottom: 20px; /* Espacio interno en la parte inferior del h1 */
-    background-color: #3C949E; /* Color de fondo del título */
-    text-align: center; /* Centra el texto horizontalmente */
-    font-family: Georgia, 'Times New Roman', Times, serif; /* Fuente con estilo clásico */
-    font-size: 40px; /* Tamaño de letra grande para el título */
+    padding-top: 20px;                                                /* Espacio interno en la parte superior del h1 */
+    padding-bottom: 20px;                                             /* Espacio interno en la parte inferior del h1 */
+    background-color: var(--color-fondo-oscuro2, #3C949E);          /* Color de fondo del título, usa #3C949E como valor fallback  */
+    text-align: center;                                               /* Centra el texto horizontalmente */
+    font-family: Georgia, 'Times New Roman', Times, serif;            /* Fuente con estilo clásico */
+    font-size: 40px;                                                  /* Tamaño de letra grande para el título */
 }
 /* Aplica un estilo especial antes del contenido de los encabezados h1 */
 h1::before {
@@ -20,8 +35,11 @@ h1::before {
 }
 /* Contenedor de la navegación: logo + links */
 .navegacion {
-    text-align: center; /* Centra horizontalmente los elementos inline-block dentro */
-    padding: 20px; /* Espacio interior en todos los lados del contenedor */
+    text-align: center;                /* Centra horizontalmente los elementos */
+    padding: 20px;                     /* Espacio interior en todos los lados del contenedor de 20px */
+    position: fixed;                   /* Fija la barra de navegación en la parte superior de la ventana */
+    background-color: #5ac7ff;       /* Color de fondo celeste claro */
+    width: 100%;                       /* Ancho completo de la barra de navegación */
 }
 /* Contenedor del logo */
 .logo {
@@ -44,11 +62,11 @@ h1::before {
     text-decoration: none;           /* Elimina el subrayado predeterminado de los enlaces */
     font-size: 30px;                 /* Establece un tamaño de fuente grande para mayor visibilidad */
     margin-left: 70px;              /* Agrega espacio a la izquierda de cada enlace para separarlos */
-    color: #000cff;                 /* Color inicial del texto del enlace (azul brillante) */
+    color: var(--color-subtitulos);                 /* Color inicial del texto del enlace (azul brillante) */
     transition: color 0.3s;         /* Suaviza el cambio de color en 0.3 segundos al hacer hover */
 }
 .links_naveg a:hover {
-    color: #f9000b;                 /* Cambia el color del texto a rojo al pasar el cursor */
+    color: var(--color-primario-rojo);                 /* Cambia el color del texto a rojo al pasar el cursor */
 }
 /* Estilos para el botón dentro de la navegación */
 .links_naveg button {
@@ -56,7 +74,7 @@ h1::before {
     padding: 15px; /* Espacio interno alrededor del texto del botón */
     border: 5px solid #9BD8DB; /* Borde grueso celeste claro */
     font-family: Georgia, 'Times New Roman', Times, serif; /* Fuente clásica del botón */
-    color: black; /* Color del texto del botón */
+    color: var(--color-negro); /* Color del texto del botón */
     border-radius: 6PX; /* Bordes redondeados (¡mejor usar "6px" en minúsculas!) */
     background-color: #9BD8DB; /* Color de fondo celeste claro */
 }
@@ -83,7 +101,7 @@ button:hover {
 .boton_mensaje {
     position: relative;                             /* Establece el contexto de posicionamiento para el pseudo-elemento ::after */
     padding: 10px;                                  /* Espaciado interno de 10 píxeles */
-    border: 3px solid black;                      /* Borde sólido negro de 3 píxeles */
+    border: 3px solid var(--color-negro);                      /* Borde sólido negro de 3 píxeles */
     background-color: aquamarine;                 /* Color de fondo verde agua */
     font-size: 15px;                                /* Tamaño de fuente de 15 píxeles */
 }
@@ -143,13 +161,13 @@ button:hover {
 .cita::before {
     content: "''";             /* Inserta comillas simples dobles antes del contenido real de la cita */
     font-size: 40px;           /* Tamaño de fuente igual al texto de la cita para mantener proporción */
-    color: #000;             /* Color negro para las comillas */
+    color: var(--color-negro);           /* Color negro para las comillas */
 }
 /* Pseudo-elemento ::after para agregar comillas al final de la cita */
 .cita::after {
     content: "''";           /* Inserta comillas simples dobles después del contenido real de la cita */
     font-size: 40px;         /* Tamaño de fuente igual al texto de la cita para mantener proporción */
-    color: #000;           /* Color negro para las comillas */
+    color: var(--color-negro);         /* Color negro para las comillas */
 }
 .input_icono {
     position: relative;      /* Contenedor relativo para que el ícono se posicione respecto a este div */
@@ -172,7 +190,8 @@ button:hover {
 /* --------------------------------------------Formulario-----------------------------------------------------------------------------------------*/
 .formulario {
     background-image: url(Imagenes/clinica-veterinaria.avif);   /* Imagen de Fondo para todo el bloque del formulario */
-    padding: 50px;                                              /* Espacio interno alrededor del contenido */
+    padding: 50px;   
+    margin-top: 150px;                                           /* Espacio interno alrededor del contenido */
 }
 .formulario h3 {
     font-size: 50px;                                   /* Tamaño grande del texto del título */
@@ -186,19 +205,22 @@ form {
     max-width: 600px;          /* Ancho máximo del formulario */
     margin: 0 auto;            /* Centra el formulario horizontalmente */
     border-radius: 10px;       /* Bordes redondeados */
-    border: 5px solid black;
+    border: 5px solid var(--color-negro);
 }
 .formulario form label, .formulario form input {
     display: block;       /* Cada elemento ocupa toda la línea, uno debajo del otro */
     font-size: 30px;      /* Tamaño grande del texto para buena legibilidad */
     margin-bottom: 6px;   /* Espacio entre etiquetas y campos */
 }
+input{
+    outline: none;        /* Elimina el contorno predeterminado al hacer clic en el campo */
+}
 .formulario form input {
     margin-bottom: 10px;  /* Espacio extra entre campos de entrada */
 }
 /* Aplica a los campos inválidos del formulario */
 input:invalid {
-    border: 4px solid red;          /* Borde rojo grueso */
+    border: 4px solid var(--color-primario-rojo);          /* Borde rojo grueso */
     background-color: #fcd8d8;      /* Fondo rojo claro para indicar error */
 }
 /* Aplica a los campos válidos */
@@ -208,25 +230,60 @@ input:valid {
 /* Aplica solo a campos de tipo email */
 input[type="email"]{
     background-color: #5ac7ff;      /* Fondo azul claro */
-    border: 2px solid black;        /* Borde negro */
+    border: 3px solid var(--color-negro);        /* Borde negro */
 }
 /* Aplica cuando un campo está enfocado (activo/clickeado) */
 input:focus {
     background-color: #f9fa88;      /* Fondo amarillo claro */
-    border: 2px solid black;        /* Borde negro */
+    border: 2px solid #000cff;      /* Borde Azul */
+}
+.contenedor2 {
+    padding-top: 20px;   /* Espacio extra arriba del contenedor */
+    height: 50vh;        /* El contenedor ocupa la mitad de la altura de la pantalla */
+    width: 45%;          /* El contenedor ocupa el 45% del ancho de la pantalla */
+    margin: 0 auto;      /* Centrado automático en horizontal */
+}
+.box1 img, .box2 img {
+    height: 90%;        /* La imagen ocupa el 90% de la altura del contenedor */
+    width: 90%;         /* La imagen ocupa el 90% del ancho del contenedor */
+    display: block;     /* Convierte la imagen en un elemento de bloque para que se pueda centrar */
+    margin: 0 auto;     /* Centra la imagen horizontalmente dentro del contenedor */
+    padding: 15px;      /* Añade 15px de espacio dentro del contenedor de la imagen */
+}
+.box1 {
+    background-color: #3C949E;                   /* Color de fondo azul verdoso */
+    height: 45vh;                                  /* El cuadro ocupa el 45% de la altura de la pantalla */
+    width: 35vw;                                   /* El cuadro ocupa el 35% del ancho de la pantalla */
+    position: absolute;                            /* Se coloca de forma libre en la página */
+    margin-left: 300px;                            /* Se mueve 300px hacia la derecha */
+    z-index: -1;                                   /* Se coloca por detrás de otros elementos */
+    border: 5px solid blue;                      /* Borde azul de 5px */
+    box-shadow: 10px 10px 5px rgb(244, 3, 3);    /* Sombra roja desplazada */
+}
+.box2 {
+    background-color: #4CAF50;                       /* Fondo verde */
+    height: 45vh;                                      /* El cuadro ocupa el 45% de la altura de la pantalla */
+    width: 35vw;                                       /* El cuadro ocupa el 35% del ancho de la pantalla */
+    border: 5px solid violet;                        /* Borde violeta de 5px */
+    box-shadow: 0px 10px 5px 0px rgb(244, 3, 3);     /* Sombra roja desplazada */
+}
+.fondo {
+    height: 10vh;                                     /* Altura del 10% del alto de la ventana del navegador */
+    width: 100%;                                      /* Ancho del 100% del contenedor padre */
+    background-color: var(--color-fondo-oscuro, #70065C);      /* Color de fondo usando una variable, usa #70065C como valor fallback  */
 }
 /* -------------------------------------------------------------------------------------------------------------------------------------*/
-:root {
-    --color-border-img: #fd28f0;          /* Se define una variable para el color del borde de la imagen */
-    --color-subtitulos: #000cff;          /* Variable para el color de los subtítulos (h3) */
-    --fondo-parrafo1: #00ff10;            /* Fondo del primer párrafo dentro del contenedor .parrafos_final */
-    --fondo-parrafo2: #00fbff;            /* Fondo para los demás párrafos dentro de .parrafos_final */
-}
+
 .parrafos_final img:only-of-type {
     height: 500px;                               /* Altura fija de la imagen */
     width: 700px;                                /* Ancho fijo de la imagen */
     border: 20px solid var(--color-border-img);  /* Borde de 20px con el color definido en la variable */
     border-radius: 10px;                         /* Bordes redondeados de 10px */
+}
+.parrafos_final img{
+    position: relative;                        /* Posiciona la imagen de forma relativa la imagen queda exactamente igual */
+    top: 0px;                                  /* Desplaza la imagen 0px hacia arriba */
+    left: 0px;                                 /* Desplaza la imagen 0px hacia la derecha */
 }
 .parrafos_final {
     margin: 0 auto;                        /* Centra el contenedor horizontalmente */
@@ -266,6 +323,52 @@ input:focus {
     display: block;                   /* Hace que el pseudo-elemento sea un bloque (ocupa todo el ancho disponible) */
     height: 4px;                      /* Define la altura de la línea en 4 píxeles */
     width: 100%;                      /* La línea ocupa el 100% del ancho del contenedor del párrafo */
-    background-color: black;        /* Establece el color de la línea (Negro) */
+    background-color: var(--color-negro);        /* Establece el color de la línea (Negro) */
     margin-top: 15px;                 /* Añade un espacio de 15 píxeles entre el párrafo y la línea */
+}
+.tarjeta{ 
+    background-color: var(--color-primario-rojo);          /* Color de fondo de la tarjeta a rojo */
+    margin: 0 auto;                   /* Centra horizontalmente la tarjeta dentro de su contenedor padre */
+    height: 200px;                    /* Define la altura de la tarjeta en 200 píxeles */
+    width: 200px;                     /* Define el ancho de la tarjeta en 200 píxeles, creando un cuadrado */
+    border: 5px solid var(--color-negro);        /* Borde de 5 píxeles de grosor, de estilo sólido y color negro */
+    border-radius: 5px;               /* Redondea las esquinas de la tarjeta con un radio de 5 píxeles */
+    position: relative;               /* Posición en "relative", lo que permite posicionar elementos absolutos dentro de ella */
+    margin-bottom: 20px;              /* Añade un margen de 20 píxeles en la parte inferior de la tarjeta */
+    margin-top: -50px;                /* Añade un margen negativo de 50 píxeles en la parte superior de la tarjeta */
+}
+.boton_eliminar{                   
+    position: absolute;               /* Posición en "absolute", lo que permite posicionarlo relativamente en la tarjeta */
+    top: 70px;                        /* Posiciona el borde superior del botón a 70 píxeles */
+    left: 40px;                       /* Posiciona el borde izquierdo del botón a 40 píxeles */
+    padding: 20px;                    /* Añade un espacio de relleno de 20 píxeles dentro del botón */
+    border: none;                     /* Elimina cualquier borde predeterminado del botón */
+    border-radius: 10px;              /* Redondea las esquinas del botón con un radio de 10 píxeles */
+    font-weight: bold;                /* Grosor de la fuente del texto del botón en negrita */
+    font-size: 20px;                  /* Tamaño de la fuente del texto del botón en 20 píxeles */
+}
+.tarjeta h5{                         
+    text-align: center;                    /* Centra horizontalmente el texto dentro del elemento h5 */
+    position: absolute;                    /* Posición en "absolute", permitiendo posicionarlo dentro de la tarjeta */
+    top: 15px;                             /* Posiciona el borde superior del h5 a 15 píxeles desde el borde superior de la tarjeta */
+    left: 50px;                            /* Posiciona el borde izquierdo del h5 a 50 píxeles desde el borde izquierdo de la tarjeta */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;  /* Fuente para el texto */
+    font-size: 25px;                       /* Tamaño de la fuente del texto en 25 píxeles */
+    box-shadow: 3px 3px 9px 3px var(--color-negro);   /* Añade una sombra al texto */
+}
+.card img {
+    height: 100%;     /* La imagen ocupará toda la altura del contenedor .card */
+    width: 100%;      /* La imagen ocupará todo el ancho del contenedor .card */
+}
+.card {
+    margin: 0 auto;                               /* Centra la card horizontalmente en la página */
+    width: 300px;                                 /* Ancho de la card 300px */
+    height: 400px;   
+    --color-fondo-amarillo: #f9fa88 ;                      /* Altura de la card 400px */
+    background-color: var(--color-fondo-amarillo);           /* Le da un color de fondo amarillo claro, se usa la variable de color dentro de .card local */
+    position: relative;                                      /* Permite mover la card usando propiedades como top o left */
+    top: 50px;                                               /* Mueve la card 50px hacia abajo desde su posición normal */
+    transform: rotate(15deg);                                /* Gira la card 15 grados para dar un efecto visual */
+    box-shadow: 3px 3px 9px 3px var(--color-negro);          /* Aplica una sombra alrededor de la card */
+    padding: 20px;                                           /* Agrega espacio interno de 20px */
 }
